@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+
+    servicepod:
+        image: servicepod:0.0.1-SNAPSHOT
+        environment:
+            PARK_LOCATION: TEST_LOC
+        ports:
+            - "8189:8189"
+        networks:
+            - mongo-net
+
+ 
+    mongodb:
+        image: mongo:latest
+        environment:
+            MONGO_INITDB_DATABASE: expresso
+        volumes: 
+            - phmongo:/data/db       
+        ports:
+            - "27017:27017"
+#        deploy:
+#            replicas: 1
+#            placement:
+#                constraints: [node.labels.server==serv2]
+#            restart_policy:
+#                condition: on-failure    
+        networks:
+            - mongo-net
+
+volumes:
+    phmongo:
+
+networks:
+    mongo-net:
