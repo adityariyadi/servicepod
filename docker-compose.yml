@@ -3,13 +3,15 @@ version: '3.1'
 services:
 
     servicepod:
-        image: servicepod:0.0.1-SNAPSHOT
+        image: adityariyadi/servicepod:latest
         environment:
             PARK_LOCATION: TEST_LOC
         ports:
             - "8189:8189"
         networks:
             - mongo-net
+        depends_on:
+            - mongodb
 
  
     mongodb:
