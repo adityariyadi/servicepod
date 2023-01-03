@@ -2,18 +2,6 @@ version: '3.1'
 
 services:
 
-    servicepod:
-        image: adityariyadi/servicepod:latest
-        environment:
-            PARK_LOCATION: TEST_LOC
-        ports:
-            - "8189:8189"
-        networks:
-            - mongo-net
-        depends_on:
-            - mongodb
-
- 
     mongodb:
         image: mongo:latest
         environment:
@@ -30,6 +18,17 @@ services:
 #                condition: on-failure    
         networks:
             - mongo-net
+            
+    servicepod:
+        image: adityariyadi/servicepod:latest
+        environment:
+            PARK_LOCATION: TEST_LOC
+        ports:
+            - "8189:8189"
+        networks:
+            - mongo-net
+        depends_on:
+            - mongodb
 
 volumes:
     phmongo:
