@@ -18,11 +18,12 @@ services:
 #                condition: on-failure    
         networks:
             - mongo-net
-            
+
     servicepod:
         image: adityariyadi/servicepod:latest
         environment:
             PARK_LOCATION: TEST_LOC
+            HOST: https://spotima.id
         ports:
             - "8189:8189"
         networks:
