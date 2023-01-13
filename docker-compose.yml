@@ -23,7 +23,7 @@ services:
         image: adityariyadi/servicepod:latest
         environment:
             PARK_LOCATION: TEST_LOC
-            HOST: https://spotima.id
+            HOST: https://parkws.powerhouse.network
         ports:
             - "8189:8189"
         networks:
