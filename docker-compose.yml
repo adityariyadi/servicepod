@@ -22,7 +22,7 @@ services:
     servicepod:
         image: adityariyadi/servicepod:latest
         environment:
-            PARK_LOCATION: TEST_LOC
+            PARK_LOCATION: CHANGE_THIS
             HOST: https://restapi.spotima.id
         ports:
             - "8189:8189"
